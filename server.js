@@ -68,7 +68,27 @@ app.post('/todo', (req, res) => {
 
 //Update route
 app.put('/todo/:id', (req, res) => {
-    res.json("Needs to be implemented")
+    try {
+        const {id} = req.params;
+        const updatedTodo = req.body;
+        var existingTodos = readFile();        
+
+        const todoIndex = existingTodos.findIndex(todo => todo.id === parseInt(id));
+
+        if (todoIndex !== -1) {
+            existingTodos[todoIndex] = {
+                ...existingTodos[todoIndex],
+                ...updatedTodo
+            }
+            writeFile(existingTodos);
+            return res.status(200).json(existingTodos);
+        }
+        return res.status(404).json({message: "Todo not found"});
+        
+    } catch (error) {
+        console.error("Error:", error.message);
+        res.status(500).json({ message: "An error occurred while updating the todo." });
+    }
 });
 
 //Delete route

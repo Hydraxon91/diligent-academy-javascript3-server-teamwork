@@ -8,10 +8,5 @@
   "id": 2,
   "name": "Practice Node.js testing",
   "completed": false
- },
- {
-  "name": "Clean room",
-  "completed": false,
-  "id": 3
  }
 ]

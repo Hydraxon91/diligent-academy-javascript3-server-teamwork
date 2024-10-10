@@ -1,5 +1,5 @@
 const prompt = require('prompt-sync')();
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
 const baseUrl = 'http://localhost:3000/todo';  
 
@@ -13,7 +13,6 @@ async function listTodos() {
         console.error('Error fetching todos:', err);
     }
 }
-
 
 async function createTodo() {
     const title = prompt('Enter the title of your todo: ');
@@ -69,3 +68,33 @@ async function deleteTodo() {
         console.error('Error deleting todo:', err);
     }
 }
+
+async function main() {
+    console.log('What would you like to do?');
+    console.log('1. List Todos');
+    console.log('2. Create a Todo');
+    console.log('3. Update a Todo');
+    console.log('4. Delete a Todo');
+    
+    const choice = prompt('Enter your choice (1-4): ');
+
+    switch (choice) {
+        case '1':
+            await listTodos(fetch);
+            break;
+        case '2':
+            await createTodo(fetch);
+            break;
+        case '3':
+            await updateTodo(fetch);
+            break;
+        case '4':
+            await deleteTodo(fetch);
+            break;
+        default:
+            console.log('Invalid choice. Please select 1, 2, 3, or 4.');
+            break;
+    }
+}
+
+main();

@@ -2,6 +2,7 @@
   "dependencies": {
     "express": "^4.21.1",
     "fs": "^0.0.1-security",
+    "node-fetch": "^3.3.2",
     "prompt-sync": "^4.2.0"
   }
 }

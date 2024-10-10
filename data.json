@@ -1,4 +1,17 @@
-{
- "key": "value",
- "key2": "value2"
-}
+[
+ {
+  "id": 1,
+  "name": "Learn Express error handling",
+  "completed": false
+ },
+ {
+  "id": 2,
+  "name": "Practice Node.js testing",
+  "completed": false
+ },
+ {
+  "name": "Clean room",
+  "completed": false,
+  "id": 3
+ }
+]
